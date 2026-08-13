@@ -1,0 +1,257 @@
+:root {
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --primary: #16a34a;
+  --primary-dark: #15803d;
+  --border: rgba(148, 163, 184, 0.3);
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.18), transparent 18%),
+    radial-gradient(circle at 80% 15%, rgba(139, 92, 246, 0.16), transparent 16%),
+    radial-gradient(circle at 50% 85%, rgba(248, 113, 113, 0.14), transparent 20%),
+    linear-gradient(180deg, #020617 0%, #050b1c 50%, #090f1f 100%);
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-attachment: fixed;
+}
+
+.page-shell,
+.main-container,
+.heading-form-card,
+.todo-card {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.heading-input,
+.add-heading-btn,
+.add-input,
+.add-button {
+  pointer-events: auto;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 1px, transparent 1px) 0 0 / 14px 14px,
+    radial-gradient(circle, rgba(255, 255, 255, 0.55) 1px, transparent 1px) 7px 7px / 20px 20px,
+    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.18), transparent 12%),
+    radial-gradient(circle at 85% 20%, rgba(96, 165, 250, 0.14), transparent 14%),
+    radial-gradient(circle at 60% 80%, rgba(248, 113, 113, 0.12), transparent 18%);
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: -2;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.main-container {
+  width: min(500px, 100%);
+}
+
+.app-title {
+  margin: 0 0 32px;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.heading-form-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
+}
+
+.heading-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.heading-input {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  outline: none;
+  background: #f8fafc;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.heading-input::placeholder {
+  color: var(--muted);
+}
+
+.add-heading-btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 16px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.add-heading-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.todo-card {
+  width: min(420px, 100%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.08);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.delete-heading-btn {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 999px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.delete-heading-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.task-list {
+  margin-bottom: 24px;
+}
+
+.task-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  padding: 14px 18px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.empty-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.add-row {
+  display: flex;
+  gap: 12px;
+}
+
+.add-input {
+  flex: 1;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  outline: none;
+  background: #f8fafc;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.add-input::placeholder {
+  color: var(--muted);
+}
+
+.add-button {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 16px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.add-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 520px) {
+  .main-container {
+    width: 100%;
+  }
+
+  .heading-form-card,
+  .todo-card {
+    padding: 20px;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .add-row {
+    flex-direction: column;
+  }
+
+  .add-button,
+  .add-heading-btn {
+    width: 100%;
+  }
+}
+
+
